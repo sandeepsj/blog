@@ -1,0 +1,8 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Write and publish posts on Sandeep's blog (github.com/sandeepsj/blog → sandeepsj.github.io/blog): drafting, privacy check, publishing with gh, verifying the GitHub Pages build.",
+  "author": { "name": "Sandeep S J" },
+  "homepage": "https://sandeepsj.github.io/blog/",
+  "keywords": ["blog", "writing", "github-pages", "jekyll"]
+}

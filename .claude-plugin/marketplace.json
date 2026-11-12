@@ -1,0 +1,16 @@
+{
+  "name": "sandeepsj-blog",
+  "owner": {
+    "name": "Sandeep S J"
+  },
+  "metadata": {
+    "description": "Sandeep's own Claude Code skills, starting with the blog skill."
+  },
+  "plugins": [
+    {
+      "name": "blog",
+      "source": "./plugin",
+      "description": "Write and publish posts on Sandeep's blog (sandeepsj.github.io/blog)."
+    }
+  ]
+}

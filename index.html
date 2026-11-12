@@ -1,0 +1,20 @@
+---
+layout: default
+title: Writing
+---
+<section class="intro">
+  <p>{{ site.description }}</p>
+</section>
+{% if site.posts.size == 0 %}
+<p class="empty">Nothing published yet.</p>
+{% else %}
+<ol class="posts">
+  {% for post in site.posts %}
+  <li>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}

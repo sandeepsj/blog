@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% feed_meta %}
+</head>
+<body>
+  <header class="masthead">
+    <a class="name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav><a href="{{ '/' | relative_url }}">Writing</a><a href="{{ '/about/' | relative_url }}">About</a><a href="{{ '/feed.xml' | relative_url }}">Feed</a></nav>
+  </header>
+  <main>{{ content }}</main>
+  <footer class="colophon">© {{ 'now' | date: '%Y' }} {{ site.author }} · <a href="https://github.com/sandeepsj/blog">source</a></footer>
+</body>
+</html>

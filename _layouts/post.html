@@ -1,11 +1,24 @@
 ---
 layout: default
 ---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 230 | plus: 1 -%}
 <article class="post">
-  <header>
-    <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>{% if page.tags.size > 0 %} · {{ page.tags | join: ' · ' }}{% endif %}</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+  <header class="row">
+    <div class="margin" aria-hidden="true"></div>
+    <div class="col">
+      <dl class="titleblock">
+        <div><dt>Project</dt><dd>{{ page.project | default: page.tags.first | default: 'Notes' }}</dd></div>
+        <div><dt>Date</dt><dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %b %Y' }}</time></dd></div>
+        <div><dt>Reading</dt><dd>{{ minutes }} min</dd></div>
+      </dl>
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+      {% if page.result %}<p class="answer">{{ page.result }}</p>{% endif %}
+    </div>
   </header>
-  <div class="body">{{ content }}</div>
+  <div class="row">
+    <div class="margin" aria-hidden="true"></div>
+    <div class="col body">{{ content }}</div>
+  </div>
 </article>

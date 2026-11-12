@@ -41,12 +41,16 @@ A Jekyll site that GitHub Pages builds by itself: no local tooling. Pushing to `
 layout: post
 title: "Kokoro TTS 40% faster on a laptop CPU, same sound"
 description: "One sentence: what the reader gets. Shown under the title, on the index, and in link previews."
+result: "2.8× → 3.9× real time, audio identical to 97 dB"
+project: kokoro
 tags: [tts, performance]
 ---
 
 Body in Markdown (GitHub-flavoured: tables and fenced code work).
 ```
 
+- **`result`** (optional, but use it whenever there's a measured outcome): the answer in one short line with its numbers. The design draws it as **the boxed answer**, the way engineers box a final result on a computation pad, both on the post and in the index. It's the page's one loud element, so keep it to a single fact; no sentences.
+- **`project`** (optional): what it's part of, shown in the post's title block. Defaults to the first tag.
 - **Slug:** short, lowercase, hyphens: `kokoro-openvino-decoder`.
 - **Images and other files:** put them in `assets/posts/<slug>/` and link with `{{ '/assets/posts/<slug>/chart.png' | relative_url }}`. Keep images small (PNG or WebP, under ~300 KB).
 - **Code:** short snippets go in fenced blocks with a language. Anything a reader needs to run belongs in a public repo or gist, linked from the post, with exact versions.
@@ -70,6 +74,12 @@ Material for the post usually comes from the conversation and the project. Use t
 
 Edit the file under `_posts/`, keeping its name so the URL stays the same. For a change in substance, add a line at the end: `*Updated D Month YYYY: what changed.*`. Then follow the same publish and verify steps. Deleting a post also needs the user's say-so.
 
-## Local preview (optional)
+## The design (keep it consistent)
+The site is an **engineering computation pad**: pale green paper with a faint grid, a margin rule, graphite ink, drafting-blue ink for results and links, Archivo (expanded) for lettering and Newsreader for reading. Each post has a title block (project, date, reading time) and a boxed answer (`result`). In a post's Markdown, use plain headings, lists, tables and fenced code; the stylesheet handles the look. Don't add inline styles, emojis as icons, or all-caps labels.
 
-There's normally no need: GitHub builds the site. To preview anyway, Ruby and Bundler are needed. Run `gem install bundler` and add a `Gemfile` with `gem "github-pages", group: :jekyll_plugins` (keep it out of the commit unless the user wants it), then `bundle install && bundle exec jekyll serve --drafts` and open `http://127.0.0.1:4000/blog/`.
+## Local preview (optional)
+There's normally no need: GitHub builds the site. If `~/.local/bin/jekyll-lite` exists (a small wrapper around Jekyll that needs no `ruby-dev`):
+```
+cd ~/dev/blog && BASEURL=/blog PORT=4011 jekyll-lite serve --drafts    # http://127.0.0.1:4011/blog/
+```
+Otherwise, with Ruby and Bundler: add a `Gemfile` with `gem "github-pages", group: :jekyll_plugins` (keep it out of the commit), then `bundle install && bundle exec jekyll serve --drafts` and open `http://127.0.0.1:4000/blog/`.

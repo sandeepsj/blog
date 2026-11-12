@@ -2,18 +2,28 @@
 layout: default
 title: Writing
 ---
-<section class="intro">
-  <p>{{ site.description }}</p>
+<section class="row intro">
+  <div class="margin" aria-hidden="true"></div>
+  <div class="col">
+    <h1 class="lede">Things I built, and things I found out while building them.</h1>
+    <p>Each entry ends with what was measured, on what machine, and how to redo it.</p>
+  </div>
 </section>
 {% if site.posts.size == 0 %}
-<p class="empty">Nothing published yet.</p>
+<section class="row">
+  <div class="margin" aria-hidden="true"></div>
+  <p class="col empty">The first entry is being written.</p>
+</section>
 {% else %}
-<ol class="posts">
+<ol class="log">
   {% for post in site.posts %}
-  <li>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+  <li class="row entry">
+    <div class="margin"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b' }}<span>{{ post.date | date: '%Y' }}</span></time></div>
+    <div class="col">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      {% if post.result %}<p class="answer small">{{ post.result }}</p>{% endif %}
+      {% if post.description %}<p class="desc">{{ post.description }}</p>{% endif %}
+    </div>
   </li>
   {% endfor %}
 </ol>

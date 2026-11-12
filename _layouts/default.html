@@ -14,18 +14,16 @@
   {% feed_meta %}
 </head>
 <body>
-  <a class="skip" href="#content">Skip to the writing</a>
+  <a class="skip" href="#content">Skip to content</a>
   <header class="strip">
     <a class="name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <nav aria-label="Site">
-      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
-      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
       <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
     </nav>
   </header>
   <main id="content" class="sheet">{{ content }}</main>
   <footer class="foot sheet">
-    <p>{{ site.author }}, {{ 'now' | date: '%Y' }}. Written by hand, built by GitHub Pages. <a href="https://github.com/sandeepsj/blog">Source</a>.</p>
+    <p>{{ site.author }}, {{ 'now' | date: '%Y' }}. <a href="https://github.com/sandeepsj/blog">Source</a>.</p>
   </footer>
 </body>
 </html>

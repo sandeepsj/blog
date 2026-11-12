@@ -80,7 +80,8 @@ a:hover { text-decoration-thickness: 2px; }
   letter-spacing: -0.012em; margin: 0 0 1rem; max-width: 15ch; text-wrap: balance;
 }
 .intro p { color: var(--pencil); margin: 0; max-width: 34rem; }
-.log { list-style: none; margin: 0; padding: 0 0 3rem; }
+.log { list-style: none; margin: 0; padding: 2rem 0 3rem; }
+.log .entry:first-child { border-top: 0; }
 .entry { padding: 1.5rem 0 1.6rem; border-top: 1px solid var(--grid); }
 .entry h2 { font: 700 1.65rem/1.15 var(--letter); font-stretch: 115%; margin: 0 0 0.6rem; text-wrap: balance; }
 .entry h2 a { color: var(--ink); text-decoration: none; }
